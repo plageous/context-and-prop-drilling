@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-export const UnitsContext = createContext("F");
+import { UnitsContext } from "./UnitsContext.jsx";
 
 export function UnitsProvider({ children }) {
     const [units, setUnits] = useState("F");
