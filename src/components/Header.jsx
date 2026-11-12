@@ -1,5 +1,8 @@
 import { NavLink } from "react-router";
+import { useContext } from "react";
 
+import { CityContext } from "../context/CityContext.jsx";
+import { UnitsContext } from "../context/UnitsContext.jsx";
 import CityPicker from "./CityPicker.jsx";
 import Clock from "./Clock.jsx";
 import UnitsToggle from "./UnitsToggle.jsx";
@@ -9,10 +12,16 @@ function navClass({ isActive }) {
 }
 
 function Header() {
+  const { city } = useContext(CityContext);
+  const { units } = useContext(UnitsContext);
+
   return (
     <header className="header">
       <div className="header-top">
-        <h1 className="header-title">Weather Desk</h1>
+        <div>
+          <h1 className="header-title">Weather Desk</h1>
+          <p className="header-meta">{city.name} - °{units}</p>
+        </div>
         <Clock />
       </div>
       <div className="header-bar">
