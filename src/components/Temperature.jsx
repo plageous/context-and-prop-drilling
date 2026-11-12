@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { UnitsContext } from "../context/UnitsContext.jsx";
+
 function Temperature({ celsius, units }) {
+  const { units } = useContext(UnitsContext);
   const degrees = units === "C" ? celsius : (celsius * 9) / 5 + 32;
 
   return (
