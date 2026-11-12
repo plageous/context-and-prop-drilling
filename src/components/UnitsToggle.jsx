@@ -6,10 +6,8 @@ function UnitsToggle() {
 
   return (
     <div className="units-toggle">
-      <button type="button" className={units === "F" ? "units-on" : ""} onClick={() => setUnits("F")}>
-        °F
-      </button>
-      <button type="button" className={units==="C" ? "unist-on" : ""} onClick={() => setUnits("C")}>°C</button>
+      <button type="button" className={units === "F" ? "units-on" : ""} onClick={() => setUnits("F")}>°F</button>
+      <button type="button" className={units==="C" ? "units-on" : ""} onClick={() => setUnits("C")}>°C</button>
     </div>
   );
 }

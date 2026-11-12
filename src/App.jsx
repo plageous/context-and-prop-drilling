@@ -1,25 +1,22 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router";
-
-import forecasts from "./data/forecasts.json";
-import { UnitsProvider } from "./context/UnitsContext.jsx";
+import { UnitsProvider } from "./context/UnitProvider.jsx";
+import { CityProvider } from "./context/CityContext.jsx";
 import Layout from "./components/Layout.jsx";
 import TodayPage from "./components/TodayPage.jsx";
 import WeekPage from "./components/WeekPage.jsx";
 
 function App() {
-  const [cityId, setCityId] = useState("seattle");
-  const city = forecasts.find((forecast) => forecast.id === cityId);
-
   return (
-    <UnitsContext value="C">
-      <Routes>
-        <Route element={ <Layout cityId={cityId} onCityChange={setCityId} />}>
-          <Route index element={<TodayPage city={city}/>} />
-          <Route path="week" element={<WeekPage city={city} />} />
-        </Route>
-      </Routes>
-    </UnitsContext>
+    <UnitsProvider>
+      <CityProvider>
+        <Routes>
+          <Route element={ <Layout />}>
+            <Route index element={<TodayPage />} />
+            <Route path="week" element={<WeekPage />} />
+          </Route>
+        </Routes>
+      </CityProvider>
+    </UnitsProvider>
   );
 }
 
