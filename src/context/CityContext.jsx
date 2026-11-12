@@ -7,5 +7,5 @@ export function CityProvider({ children }) {
     const [cityId, setCityId] = useState("seattle");
     const city = forecasts.find((forecast) => forecast.id === cityId);
 
-    return <CityContext value={{ cityId, setCityId, city }}>{children}</CityContext>
+    return <CityContext value={{ city, setCityId }}>{children}</CityContext>
 }
